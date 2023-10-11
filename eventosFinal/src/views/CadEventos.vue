@@ -1,8 +1,6 @@
 <template>
   <div id="ep-main">
-    <div class="container">
       <h1 style="color: white;">Eventos</h1>
-    </div>
   </div>
 </template>
 
