@@ -1,35 +1,55 @@
 <template>
-  <div class="app">
-    <div class="teste1">
-        <p class="Login">login</p>
+    <div class="app">
+      <div class="teste1">
+        <p class="Login">Login</p>
         <div class="backgroundOverlay"></div>
         <div class="inputs">
-            <input type="login" class="ra-login" placeholder="Login">
+          <input v-model="loginData.username" type="text" class="ra-login" placeholder="Login">
         </div>
         <div class="inputs">
-            <input type="password" class="ra-login" placeholder="Senha">
+          <input v-model="loginData.password" type="password" class="ra-login" placeholder="Senha">
         </div>
         <div class="buttonEntrar">
-            <button type="button" class="buttonLogin">Entrar</button>
+          <button type="button" class="buttonLogin" @click="handleLogin">Entrar</button>
         </div>
         <div class="cadastrar">
-            <p class="textCadastrar">Não tem login? <a href="/" class="linkCadastrae">Cadastre-se</a></p>
+          <p class="textCadastrar">Não tem login? <a href="/" class="linkCadastrae">Cadastre-se</a></p>
         </div>
+        <div v-if="isLoggedIn" class="loggedInMessage">
+          <p>Você está autenticado!</p>
+        </div>
+      </div>
     </div>
-  </div>
-</template>
+  </template>
 
-<script>
-import "../components/style/style.css";
 
-export default {
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {},
-};
-</script>
+  <script>
+  import "../components/style/style.css";
+  
+  export default {
+    data() {
+      return {
+        loginData: {
+          username: "",
+          password: ""
+        },
+        isLoggedIn: false
+      };
+    },
+    methods: {
+      handleLogin() {
+        const { username, password } = this.loginData;
+  
+        if (username === "user" && password === "password") {
+          this.isLoggedIn = true;
+          console.log("Usuário autenticado!");
+        } else {
+          console.log("Credenciais inválidas. Tente novamente.");
+        }
+      }
+    }
+  };
+  </script>
 
 
 
