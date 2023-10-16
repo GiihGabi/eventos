@@ -17,6 +17,7 @@
         </div>
         <div v-if="isLoggedIn" class="loggedInMessage">
           <p>Você está autenticado!</p>
+          <router-link to="/">Ir para a página inicial</router-link>
         </div>
       </div>
     </div>
