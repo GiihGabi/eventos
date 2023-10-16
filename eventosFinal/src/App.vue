@@ -31,6 +31,9 @@ let num = ref(0);
               <div>
                 <routerLink to="/fazerVenda" class="nav-link" aria-current="page">Fazer Venda</routerLink>
               </div>
+              <div>
+                <routerLink to="/loginEventos" class="nav-link" aria-current="page">Login</routerLink>
+              </div>
             </div>
           </div>
         </div>
