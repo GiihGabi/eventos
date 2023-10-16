@@ -20,6 +20,11 @@ const router = createRouter({
       path: '/fazerVenda',
       name: 'fazerVenda',
       component: () => import('../views/fazerVenda.vue')
+    },
+    {
+      path: '/loginEventos',
+      name: 'loginEventos',
+      component: () => import('../views/loginEventos.vue')
     }
   ]
 })
