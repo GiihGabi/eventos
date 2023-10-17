@@ -1,65 +1,67 @@
 <template>
-    <div class="app">
-      <div class="teste1">
-        <p class="Login">Login</p>
-        <div class="backgroundOverlay"></div>
-        <div class="inputs">
-          <input v-model="loginData.username" type="text" class="ra-login" placeholder="Login">
-        </div>
-        <div class="inputs">
-          <input v-model="loginData.password" type="password" class="ra-login" placeholder="Senha">
-        </div>
-        <div class="buttonEntrar">
-          <button type="button" class="buttonLogin" @click="handleLogin">Entrar</button>
-        </div>
-        <div class="cadastrar">
-          <p class="textCadastrar">Não tem login? <a href="/" class="linkCadastrae">Cadastre-se</a></p>
-        </div>
-        <div v-if="isLoggedIn" class="loggedInMessage">
-          <p>Você está autenticado!</p>
-          <router-link to="/">Ir para a página inicial</router-link>
-        </div>
+  <div class="app">
+    <div class="teste1">
+      <p class="Login">Login</p>
+      <div class="backgroundOverlay"></div>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label text-login">Email</label>
+        <input type="email" class="form-control inputs" id="emailInput" placeholder="name@example.com" v-model="loginData.username">
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label text-login">Senha</label>
+        <input type="password" class="form-control inputs" id="passwordInput" placeholder="" v-model="loginData.password">
+      </div>
+      <div class="buttonEntrar">
+        <button type="button" class="buttonLogin" @click="handleLogin">Entrar</button>
+      </div>
+      <div class="cadastrar">
+        <p class="textCadastrar">Não tem login? <a href="/" class="linkCadastrae">Cadastre-se</a></p>
+      </div>
+      <div v-if="isLoggedIn" class="loggedInMessage">
+        <p>Você está autenticado!</p>
+        <router-link to="/">Ir para a página inicial</router-link>
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
+<script>
+// import "../components/style/style.css";
 
-  <script>
-  import "../components/style/style.css";
-  
-  export default {
-    data() {
-      return {
-        loginData: {
-          username: "",
-          password: ""
-        },
-        isLoggedIn: false
-      };
-    },
-    methods: {
-      handleLogin() {
-        const { username, password } = this.loginData;
-  
-        if (username === "user" && password === "password") {
-          this.isLoggedIn = true;
-          console.log("Usuário autenticado!");
-        } else {
-          console.log("Credenciais inválidas. Tente novamente.");
-        }
+export default {
+  data() {
+    return {
+      loginData: {
+        username: "",
+        password: ""
+      },
+      isLoggedIn: false
+    };
+  },
+  methods: {
+    handleLogin() {
+      const { username, password } = this.loginData;
+
+      if (username === "user" && password === "password") {
+        this.isLoggedIn = true;
+        console.log("Usuário autenticado!");
+      } else {
+        console.log("Credenciais inválidas. Tente novamente.");
       }
     }
-  };
-  </script>
+  }
+};
+</script>
+
 
 
 
 <style scoped>
 @import url('https://fonts.cdnfonts.com/css/lexend-deca');
 .app {
-  height: 100vh; /* 100% da altura da viewport */
-  background-color: #000235; /* Substitua pelo seu código de cor desejado */
-  margin: 0; /* Remove as margens padrão */
+  height: 100vh;
+  background-color: #000235;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +89,7 @@
   top: 691px;
   background: #6FA7CB;
   filter: blur(250px);
-  z-index: 1; /* Ajuste conforme necessário */
+  z-index: 1;
 }
 
 .inputs {
@@ -96,7 +98,6 @@
   width: 30em;
   display: flex;
   justify-content: center;
-  margin-top: 1em;
   border: none;
 }
   
@@ -105,18 +106,18 @@
     border-radius: 20px;
     padding: 9px;
     font-family: 'Lexend Deca', sans-serif;
-    transition: border 0.3s ease-in-out; /* Adiciona uma transição suave à borda */
-    border: 2px solid #003264; /* Cor da borda inicial */
+    transition: border 0.3s ease-in-out;
+    border: 2px solid #003264;
   }
   
   .inputs:hover .ra-login {
-    border: 2px solid #005aa7; /* Cor da borda ao passar o mouse sobre .inputs */
+    border: 2px solid #005aa7;
   }
 
 .buttonEntrar{
     display: flex;
     justify-content: center;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 
 .buttonLogin{
@@ -143,6 +144,11 @@
 .textCadastrar{
     color: white;
     font-family:'Lexend Deca', sans-serif;
+}
+
+.text-login{
+  color: white;
+  font-family:'Lexend Deca', sans-serif;
 }
 
 </style>

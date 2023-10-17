@@ -8,8 +8,8 @@
     <div class="container-fluid d-flex justify-content-center">
       <div class="containerHome">
         <div class="image1"><p class="p"></p></div>
-        <div class="card bg-dark text-white"> <!-- Ajuste a largura conforme necessário -->
-          <img src="../components/image/coding-bootcamp-site-geral.png" class="card-img image" alt="..."> <!-- Ajuste o tamanho da imagem conforme necessário -->
+        <div class="card bg-dark text-white image">
+          <img src="../components/image/coding-bootcamp-site-geral.png" class="card-img image" alt="...">
         </div> 
       </div>
     </div>
@@ -28,7 +28,9 @@
               <div class="card-body">
                 <h5 class="card-title title-homePage">Semana Jurídica</h5>
                 <p class="card-text">Para se inscrever, clique no botão abaixo:</p>
-                <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                <div class="button-inscrever">
+                  <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                </div>
               </div>
             </div>
           </div>
@@ -38,7 +40,9 @@
               <div class="card-body">
                 <h5 class="card-title title-homePage">Semana de Fisioterapia</h5>
                 <p class="card-text">Para se inscrever, clique no botão abaixo:</p>
-                <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                <div class="button-inscrever">
+                  <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                </div>
               </div>
             </div>
           </div>
@@ -48,7 +52,9 @@
               <div class="card-body">
                 <h5 class="card-title title-homePage">Carreiras de TI</h5>
                 <p class="card-text">Para se inscrever, clique no botão abaixo:</p>
-                <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                <div class="button-inscrever">
+                  <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                </div>
               </div>
             </div>
           </div>
@@ -58,7 +64,9 @@
               <div class="card-body">
                 <h5 class="card-title title-homePage">Semana de Engenharia</h5>
                 <p class="card-text">Para se inscrever, clique no botão abaixo:</p>
-                <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                <div class="button-inscrever">
+                  <a href="#" class="btn btn-primary button-homePage">Inscrever</a>
+                </div>
               </div>
             </div>
           </div>
@@ -89,8 +97,9 @@ main {
 }
 
 .image{
-  width: 100em;
-  height: 20em;
+  width: 83em;
+  height: 15em;
+  border-radius: 20px;
 }
 
 .p{
@@ -113,6 +122,18 @@ main {
   padding: 8px;
   background-color: #000235;
   margin-top: 1em;
+  transition: transform 0.3s ease-in-out;
+  width: 12em;
+}
+
+.button-homePage:hover {
+  transform: scaleX(1.1);
+  background-color: #014b96;
+}
+
+.button-inscrever{
+  display: flex;
+  justify-content: center;
 }
 
 .title-homePage{
