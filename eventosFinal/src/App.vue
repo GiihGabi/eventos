@@ -2,9 +2,6 @@
 // import { RouterLink, RouterView } from 'vue-router'
 import { ref } from "vue";
 import "./components/style/app.css";
-
-let num = ref(0);
-
 </script>
 
 <template>
@@ -32,7 +29,7 @@ let num = ref(0);
                 <routerLink to="/fazerVenda" class="nav-link" aria-current="page">Fazer Venda</routerLink>
               </div>
               <div>
-                <routerLink to="/loginEventos" class="nav-link" aria-current="page">Login</routerLink>
+                <routerLink to="/cadComprador" class="nav-link" aria-current="page">Cadastrar Comprador</routerLink>
               </div>
             </div>
           </div>

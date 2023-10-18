@@ -1,35 +1,32 @@
 <template>
-  <div id="ep-main">
+  <div class="app">
     <div class="container">
-      <p class="Login">Cadastrar Eventos</p>
+      <p class="Login">Comprador</p>
       <div class="row">
         <div class="col-md-6 margin-input" >
-          <label for="">Nome do Evento</label>
+          <label for="">Nome</label>
           <input type="text" class="form-control inputs" placeholder="" />
         </div>
         <div class="col-md-6 margin-input">
-          <label for="">Local do Evento</label>
+          <label for="">Sobrenome</label>
           <input type="text" class="form-control inputs" placeholder="" />
         </div>
       </div>
       <div class="row">
+        <div class="col-md-4 margin-input">
+          <label for="">Email</label>
+          <input type="email" min="1" class="form-control inputs" placeholder="" />
+        </div>
         <div class="col-md-4 margin-input" >
           <label for="">Data do Evento</label>
           <input type="date"  class="form-control inputs">
         </div>
-        <div class="col-md-4 margin-input">
-          <label for="">Valor do Ingresso</label>
-          <input type="number" min="1" class="form-control inputs" placeholder="" />
-        </div>
-        <div class="col-md-4 margin-input">
-          <label for="">Quantidade de Ingressos</label>
-          <input type="number" min="1" class="form-control inputs" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 margin-input" >
-          <label for="">Descrição do Evento</label>
-          <textarea name="" class="form-control inputs"></textarea>
+        <div class="col-md-4" id="ativo">
+          <label class="switch">
+            <input type="checkbox" @click="toggleCheckbox">
+            <div class="slider round"></div>
+          </label>
+          <p style="padding: 12px 0 0 12px">{{ checkbox }}</p>
         </div>
       </div>
       <div class="cadEvento">
@@ -40,19 +37,43 @@
 </template>
 
 <script>
-import "../components/style/style.css";
+
 export default {
   data() {
-    return {};
+    return {
+      loginData: {
+        username: "",
+        password: ""
+      },
+      isLoggedIn: false,
+      checkbox: false
+    };
   },
-  mounted() {},
-  methods: {},
+  methods: {
+    handleLogin() {
+      const { username, password } = this.loginData;
+
+      if (username === "user" && password === "password") {
+        this.isLoggedIn = true;
+        console.log("Usuário autenticado!");
+      } else {
+        console.log("Credenciais inválidas. Tente novamente.");
+      }
+    },
+    toggleCheckbox() {
+      this.checkbox = !this.checkbox
+      this.$emit('setCheckboxVal', this.checkbox)
+    }
+  }
 };
 </script>
 
+
+
+
 <style scoped>
 @import url('https://fonts.cdnfonts.com/css/lexend-deca');
-#ep-main {
+.app {
   background-color: black;
   background-image: url("../components/image/initialPage.png");
   background-repeat: no-repeat;
@@ -63,6 +84,72 @@ export default {
   font-family:'Lexend Deca', sans-serif;
 }
 
+.switch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #101010;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #101010;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#ativo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  color: white;
+}
 .Login{
   display: flex;
   justify-content: center;

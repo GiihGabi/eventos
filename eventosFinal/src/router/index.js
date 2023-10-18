@@ -22,9 +22,9 @@ const router = createRouter({
       component: () => import('../views/fazerVenda.vue')
     },
     {
-      path: '/loginEventos',
-      name: 'loginEventos',
-      component: () => import('../views/loginEventos.vue')
+      path: '/cadComprador',
+      name: 'cadComprador',
+      component: () => import('../views/cadComprador.vue')
     }
   ]
 })
