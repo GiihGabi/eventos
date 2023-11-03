@@ -1,4 +1,19 @@
 <script setup>
+import { ref, computed, onMounted, reactive } from 'vue';
+import axios from 'axios';
+
+const evento = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('https://localhost:7127/api/evento');
+    evento.value = response.data.$values;
+    console.log(evento.value);
+  } catch (error) {
+    console.error('Erro na solicitação:', error);
+  }
+});
+
 
 </script>
 
@@ -34,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
+          <!-- <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card" style="width: 20rem;">
               <img src="https://oficial.unimar.br/wp-content/uploads/2023/05/BANNER_EVENTOS-1-1.jpg" class="card-img-top" alt="..." style="height: 8em;">
               <div class="card-body">
@@ -57,8 +72,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
+          </div> -->
+          <!-- <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card" style="width: 20rem;">
               <img src="https://oficial.unimar.br/wp-content/uploads/2023/09/BANNER_EVENTOS-5.jpg" class="card-img-top" alt="..." style="height: 8em;">
               <div class="card-body">
@@ -69,7 +84,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
